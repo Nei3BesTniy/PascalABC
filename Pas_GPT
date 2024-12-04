@@ -1,0 +1,31 @@
+program DiagonalAverage;
+
+const
+  N = 3;  { Размерность квадратной матрицы }
+
+var
+  A: array[1..N, 1..N] of Integer;
+  sum, i, j: Integer;
+  avg: Double;  { Используем тип Double для вещественных чисел }
+
+begin
+  { Вводим элементы матрицы }
+  WriteLn('Введите элементы матрицы:');
+  for i := 1 to N do
+    for j := 1 to N do
+    begin
+      Write('A[', i, ',', j, ']: ');
+      Read(A[i, j]);
+    end;
+
+  { Вычисляем сумму элементов на главной диагонали }
+  sum := 0;
+  for i := 1 to N do
+    sum := sum + A[i, i];
+
+  { Вычисляем среднее арифметическое }
+  avg := sum / N;
+
+  { Выводим результат }
+  WriteLn('Среднее арифметическое элементов на главной диагонали: ', avg:0:2);
+end.
